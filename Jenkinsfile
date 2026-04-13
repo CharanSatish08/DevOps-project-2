@@ -14,5 +14,15 @@ environment{
                 sh 'mvn clean test -Djacoco.skip=true'
             }
         }
+        stage('Sonar Analysis'){
+        environment{
+            scannerHome = tool 'sonar-scanner';
+        }
+            steps{
+                withSonarQubeEnv('SonarQube-server') { // If you have configured more than one global server connection, you can specify its name
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }
+            }
+        }
     }
 }
