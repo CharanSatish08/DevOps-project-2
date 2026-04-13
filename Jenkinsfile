@@ -1,19 +1,17 @@
 pipeline{
-    agent any
-     tools {
-        maven 'MAVEN3.9'
-        jdk 'JDK21'
-    }
-    stages{
-        stage('Checkout'){
-            steps{
-                git branch: 'main', url: 'https://github.com/CharanSatish08/DevOps-project-2.git'
-            }
+    agent {
+        node{
+            label 'maven'
         }
+    }
+environment{
+    PATH = "/opt/apache-maven-3.9.14/bin:$PATH"
+}
+    stages{
         stage('Build'){
             steps{
                 echo 'Building...'
-                sh 'mvn install'
+                sh 'mvn clean deploy'
             }
         }
     }
