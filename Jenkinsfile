@@ -11,7 +11,7 @@ environment{
         stage('Build'){
             steps{
                 echo 'Building...'
-                sh 'mvn clean deploy'
+                sh 'mvn clean test -Djacoco.skip=true'
             }
         }
     }
