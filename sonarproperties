@@ -1,6 +1,6 @@
 sonar.verbose=true
 sonar.organization=DevOps-project
-sonar.projectkey=vprofile-action-01_sonar-project
+sonar.projectkey=vprofile-action-01
 sonar.projectName=Sonar-project
 sonar.language=java
 sonar.sourceEncoding=UTF-8
