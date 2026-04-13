@@ -10,7 +10,7 @@ environment{
     stages{
         stage('Build'){
             steps{
-                echo 'Building...'
+                echo 'Building..'
                 sh 'mvn clean test -Djacoco.skip=true'
             }
         }
