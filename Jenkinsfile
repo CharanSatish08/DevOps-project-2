@@ -11,7 +11,13 @@ environment{
         stage('Build'){
             steps{
                 echo 'Building..'
-                sh 'mvn clean test -Djacoco.skip=true'
+                sh 'mvn clean deploy -Dmaven.test.skip=true'
+            }
+        }
+        stage('Tests'){
+            steps{
+                echo 'Testing..'
+                sh 'mvn surefire-report:report'
             }
         }
         stage('Sonar Analysis'){
